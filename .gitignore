@@ -20,6 +20,7 @@ pnpm-debug.log*
 # claude
 .claude/
 .mcp.json
+CLAUDE.md
 
 # macOS-specific files
 .DS_Store
@@ -34,3 +35,5 @@ Thumbs.db
 
 # misc
 *.zip
+package-lock.json
+auo-smartcockpit-typography.md

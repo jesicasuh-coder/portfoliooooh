@@ -1,0 +1,192 @@
+/* Shared styles for highlight/article pages */
+
+/* Page container */
+.highlight-page {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Content column inside ArticleLayout */
+.content {
+  max-width: 835px;
+}
+
+/* Section spacing */
+.content section {
+  margin-bottom: 35px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 32px;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+/* Body text */
+.body-text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.body-text p {
+  margin-bottom: 24px;
+}
+
+.body-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Intro block */
+.intro-title {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.subtitle-heading {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.subtitle-description {
+  font-size: 16px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1;
+}
+
+.nda {
+  font-size: 16px;
+  font-weight: 100;
+  font-style: italic;
+  line-height: 1;
+  margin-bottom: 62px;
+}
+
+.intro .divider-full {
+  margin-top: 35px;
+  margin-bottom: 56px;
+}
+
+/* Full-width section image */
+.section-image {
+  width: 100%;
+  margin: 24px 0;
+  object-fit: cover;
+}
+
+/* Side-by-side text columns */
+.two-column-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 53px;
+  margin: 24px 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.two-column-grid .column p:first-child {
+  margin-bottom: 16px;
+}
+
+/* Pull quote */
+.pull-quote {
+  font-size: 16px;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1;
+  margin: 24px 0;
+}
+
+/* Credits / shout-outs */
+.credits {
+  font-size: 16px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1;
+  text-decoration: none;
+  margin-bottom: 24px;
+}
+
+/* Shout-outs pull quote is Bold (not italic) */
+#shoutouts .pull-quote {
+  font-style: normal;
+}
+
+/* Bold lead-ins at 20px in challenge, role, and learnings sections */
+#challenge .body-text strong,
+#challenge .two-column-grid strong,
+#my-role .body-text strong,
+#learnings .body-text strong {
+  font-size: 20px;
+}
+
+/* ---------- Responsive article ---------- */
+@media (max-width: 1023px) {
+  .content {
+    max-width: 100%;
+  }
+  .two-column-grid {
+    gap: 32px;
+  }
+  h2 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 767px) {
+  .two-column-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .body-text {
+    font-size: 14px;
+  }
+  .nda {
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+  .subtitle {
+    font-size: 14px;
+  }
+  .subtitle-heading {
+    font-size: 28px;
+  }
+  .subtitle-description {
+    font-size: 14px;
+  }
+  .pull-quote {
+    font-size: 14px;
+  }
+  .intro .divider-full {
+    margin-bottom: 32px;
+  }
+  .content section {
+    margin-bottom: 24px;
+  }
+  #learnings .body-text strong {
+    font-size: 18px;
+  }
+}

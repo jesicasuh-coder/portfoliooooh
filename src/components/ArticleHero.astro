@@ -1,0 +1,63 @@
+---
+interface Props {
+  title: string;
+  logoSrc: string;
+  logoAlt: string;
+  logoWidth?: string;
+  imageSrc: string;
+  imageAlt: string;
+}
+
+const { title, logoSrc, logoAlt, logoWidth = '123px', imageSrc, imageAlt } = Astro.props;
+---
+
+<section class="hero">
+  <div class="hero-header">
+    <p class="page-title">{title}</p>
+    <img class="hero-logo" src={logoSrc} alt={logoAlt} style={`width: ${logoWidth}`} />
+  </div>
+  <img class="hero-image" src={imageSrc} alt={imageAlt} />
+</section>
+
+<style>
+  .hero {
+    padding: 76px var(--content-padding) 0;
+  }
+
+  .hero-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1218px;
+    margin: 0 auto 60px;
+  }
+
+  .page-title {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .hero-logo {
+    height: auto;
+  }
+
+  .hero-image {
+    display: block;
+    width: 100%;
+    max-width: 1218px;
+    margin: 0 auto;
+    object-fit: cover;
+  }
+
+  @media (max-width: 767px) {
+    .hero {
+      padding-top: 40px;
+    }
+    .hero-header {
+      margin-bottom: 32px;
+    }
+    .page-title {
+      font-size: 14px;
+    }
+  }
+</style>

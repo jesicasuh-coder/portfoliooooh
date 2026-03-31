@@ -1,0 +1,156 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ArticleLayout from '../../components/ArticleLayout.astro';
+import Toc from '../../components/Toc.astro';
+import ArticleHero from '../../components/ArticleHero.astro';
+import ImagePair from '../../components/ImagePair.astro';
+import '../../styles/article.css';
+---
+
+<BaseLayout title="AUO CES 2025 SmartCockpit — Jessica Suh">
+  <Header />
+  <main class="highlight-page">
+    <ArticleHero
+      title="Highlights: AUO CES 2025 SmartCockpit"
+      logoSrc="/images/auo-smartcockpit/auo-logo.png"
+      logoAlt="AUO Corporation"
+      logoWidth="98px"
+      imageSrc="/images/auo-smartcockpit/hero.png"
+      imageAlt="AUO Smart Cockpit at CES 2025"
+    />
+
+    <!-- Article: TOC + Content -->
+    <ArticleLayout>
+      <Toc
+        slot="toc"
+        items={[
+          { label: "Leading Display Tech", href: "#leading-display-tech" },
+          { label: "The Challenge", href: "#challenge" },
+          { label: "My Role", href: "#my-role" },
+          { label: "Design Process", href: "#design-process" },
+          { label: "Learnings", href: "#learnings" },
+          { label: "Shout-outs", href: "#shoutouts" },
+        ]}
+        paddingTop="286px"
+      />
+      <div class="content">
+        <!-- Intro -->
+        <div class="intro">
+          <h1 class="intro-title" style="text-align: center;">
+            Infinite Future. Unlimited Possibilities.
+          </h1>
+          <p class="subtitle-description" style="text-align: center;">
+            <em>A design of integrating MicroLED transparent display technology into a single coherent cockpit.</em>
+          </p>
+          <div class="divider-full"></div>
+          <p class="nda">
+            <em>In compliance with my non-disclosure agreement with IDEENION Automobil AG and AUO Corporation, I&rsquo;ve omitted confidential technical data and proprietary specifications from this project. The insights shared here are my own and don&rsquo;t necessarily represent the views of AUO or IDEENION.</em>
+          </p>
+        </div>
+
+        <!-- Leading Display Technology -->
+        <section id="leading-display-tech">
+          <h2>Leading Display Technology</h2>
+          <div class="body-text">
+            <p>AUO Corporation is one of the world&rsquo;s leading display technology manufacturers, producing panels for everything from consumer electronics to medical equipment to automotive applications.</p>
+            <p>At CES 2025, they needed to do something different: demonstrate a vision. The AUO Smart Cockpit was built to showcase the company&rsquo;s most advanced MicroLED transparent display technologies inside a vehicle environment that felt real, considered, and human.</p>
+            <p>A fully integrated cockpit architecture. A live demonstrator capable of stopping traffic on the CES floor and making the technology feel inevitable.</p>
+          </div>
+        </section>
+
+        <!-- The gap between display technology and cockpit design -->
+        <section id="gap">
+          <h2>The gap between display technology and cockpit design</h2>
+          <div class="body-text">
+            <p>The automotive display industry has spent the last decade making screens larger, brighter, and more technically impressive. AUO&rsquo;s MicroLED transparent technology represents the next frontier: displays that are no longer just surfaces but structural elements of the vehicle itself. The design challenge that comes with that leap is coherence.</p>
+            <p>MicroLED transparent displays introduce a specific version of this challenge. The technology allows surfaces to be simultaneously structural and informational, physical and digital. A roof panel can display content. Rear side windows carry interface elements. The boundary between the car&rsquo;s material world and its digital layer dissolves. That is exactly what makes the technology exciting.</p>
+          </div>
+          <img src="/images/auo-smartcockpit/interior-01.png" alt="AUO Smart Cockpit interior" class="section-image" />
+        </section>
+
+        <div class="divider-full"></div>
+
+        <!-- The Challenge -->
+        <section id="challenge">
+          <h2>The Challenge</h2>
+          <div class="body-text">
+            <p><strong>The challenge wasn&rsquo;t integrating displays. It was designing one experience that happened to all</strong></p>
+            <p>The AUO Smart Cockpit required resolving two problems simultaneously, and neither could be solved independently of the other.</p>
+          </div>
+          <div class="two-column-grid">
+            <div class="column">
+              <h3>1. Architecture had to start from the human, not from the screens.</h3>
+              <p style="font-size: 14px; color: #9d9d9d;">For a demonstrator built around technology this advanced, we wanted to go further, starting from how a person actually occupies a cockpit and working toward the displays from there. Every layout decision, every surface angle, every reach zone began with how a person enters, settles, reaches, and reads.</p>
+            </div>
+            <div class="column">
+              <h3>2. Physical environment and digital interface had to speak the same language.</h3>
+              <p style="font-size: 14px; color: #9d9d9d;">Six sets of displays producing different types of content, across different surfaces, at different distances from the driver, needed a unified visual logic. CMF, spatial layout, and UI design could not be resolved as separate workstreams. They had to be designed as one.</p>
+            </div>
+          </div>
+          <img src="/images/auo-smartcockpit/display-01.png" alt="AUO Smart Cockpit displays" class="section-image" />
+        </section>
+
+        <div class="divider-full"></div>
+
+        <!-- My Role -->
+        <section id="my-role">
+          <h2>My Role</h2>
+          <div class="body-text">
+            <h3>From display layout to delivered experience.</h3>
+            <p>Under the direct supervision of <u>IDEENION&rsquo;s CDO Lorenz,</u> I led the full design scope of the AUO Smart Cockpit as Design Team Lead, covering vehicle layout, exterior and interior design, CMF, UI/UX, and CGI creative direction.</p>
+            <p>The scope ran from the earliest display layout decisions through the UX storyboarding, the interior architecture, the CMF specification, and the final CGI direction for the reveal.</p>
+            <p>The display placement, the physical architecture, and the interface logic were developed together from the start. That integration was the project.</p>
+          </div>
+          <img src="/images/auo-smartcockpit/development-01.png" alt="AUO Smart Cockpit development" class="section-image" />
+        </section>
+
+        <div class="divider-full"></div>
+
+        <!-- Design Process -->
+        <section id="design-process">
+          <h2>Design Process</h2>
+          <div class="body-text">
+            <p>Before any display surface was positioned, we mapped the full physical experience of occupying the cockpit: how a person enters and what they see first, where their eyes settle at rest, what their natural reach envelope looks like, how their gaze moves between near and far focal distances during a journey. That behavioral mapping became the constraint set for every display placement decision that followed.</p>
+            <p>From there, the display layout was developed not as an arrangement of hardware but as a spatial storyboard of the full user experience. <u>Which information surfaces does a driver encounter on entry? What shifts when the car is in motion? How does the experience change for a passenger?</u> The six sets of displays were positioned to answer those questions, with the goal of making AUO and BHTC&rsquo;s technology feel like the natural conclusion of the space.</p>
+          </div>
+          <img src="/images/auo-smartcockpit/ces-booth-01.png" alt="AUO Smart Cockpit at CES" class="section-image" />
+          <div class="body-text">
+            <p>With the layout established, the UX storyboarding defined the content logic across all six sets of surfaces simultaneously. Interface zones were assigned, content hierarchies resolved, and transition behaviors designed so that the digital layer moved coherently as a single system rather than six independent screens responding to separate triggers.</p>
+            <p>CMF was developed in direct response to the interface palette. Material choices, surface textures, and color temperatures across the physical cockpit were resolved against the display environments they surrounded, ensuring that the physical and digital layers reinforced each other.</p>
+          </div>
+        </section>
+
+        <div class="divider-full"></div>
+
+        <!-- Learnings -->
+        <section id="learnings">
+          <h2>What this project taught me about leading integrated design at the intersection of hardware and experience.</h2>
+          <div class="body-text">
+            <p><strong>#1. The best way to showcase technology is to make it feel inevitable.</strong> AUO&rsquo;s MicroLED transparent displays are genuinely groundbreaking. A quiet architecture is what allows that kind of technology to land with full force. Our job was to make the displays feel like they belonged, so that the technology itself could do the talking. The cockpit exists to serve the experience, and the experience exists to serve the technology.</p>
+            <p><strong>#2. Coherence is a systems problem, not a visual one.</strong> Getting six sets of displays to feel like one experience required a shared logic running underneath the visual design: a content hierarchy, a transition behavior framework, rules about what information belongs where and when. Without that underlying system, visual consistency alone would not have been enough. You can make six things look similar without making them feel unified. The storyboarding process was where the actual coherence was built.</p>
+            <p><strong>#3. CMF and UI designed together is what lets the technology read as part of the car.</strong> On a cockpit where the display surfaces are also material surfaces, designing CMF and UI in the same conversation is what allows the physical and digital layers to feel like one object rather than two. The moments where the integration felt most seamless were the moments where those decisions had been made together, with the display technology as the constant reference point.</p>
+            <p><strong>#4. A trade show demonstrator has two audiences and they need different things.</strong> The CES floor audience experiences the cockpit physically, in real time. The press and industry audience experiences it through CGI, video, and written coverage. Designing for both simultaneously, and making sure the CGI creative direction captured the experience intent rather than just the surface aesthetics, was a distinct challenge. The goal in both cases was the same: make the technology feel like something the world is ready for.</p>
+          </div>
+          <ImagePair>
+            <img src="/images/auo-smartcockpit/detail-01.png" alt="AUO Smart Cockpit" />
+            <img src="/images/auo-smartcockpit/detail-02.png" alt="AUO Smart Cockpit" />
+          </ImagePair>
+        </section>
+
+        <div class="divider-full"></div>
+
+        <!-- Shout-outs -->
+        <section id="shoutouts">
+          <h2>Shout-outs</h2>
+          <p class="credits" style="font-weight: 300; font-style: italic; color: #9d9d9d;"><u>To our designers and CAS modellers</u> for translating spatial intent into surfaces that could actually be built. <u>To the AUO and BHTC engineering teams</u> for the technical integration work that made the display technology behave the way the experience required. And to <u>Lorenz, CDO of IDEENION</u>, for the direction and the trust that made this the kind of project worth writing about.</p>
+          <img src="/images/auo-smartcockpit/closing-photo.png" alt="AUO Smart Cockpit at CES 2025" class="section-image" />
+          <p class="body-text" style="text-align: right;"><em>Image via [AUO Newsroom]</em></p>
+          <p class="pull-quote" style="font-style: normal;">CES 2025. One cockpit. Six displays. One experience.</p>
+        </section>
+      </div>
+    </ArticleLayout>
+  </main>
+  <Footer />
+</BaseLayout>

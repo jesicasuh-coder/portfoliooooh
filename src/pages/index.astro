@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import HeroIntro from '../components/HeroIntro.astro';
+import HeroPortrait from '../components/HeroPortrait.astro';
+import HeroLanguages from '../components/HeroLanguages.astro';
+import HeroPublications from '../components/HeroPublications.astro';
+import HeroSkills from '../components/HeroSkills.astro';
+import HighlightsSection from '../components/HighlightsSection.astro';
+import BrandsSection from '../components/BrandsSection.astro';
+import AboutSection from '../components/AboutSection.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Jessica Suh — Portfolio">
+  <Header />
+  <main>
+    <section class="hero">
+      <div class="hero-intro"><HeroIntro /></div>
+      <div class="hero-portrait"><HeroPortrait /></div>
+      <div class="hero-languages"><HeroLanguages /></div>
+      <div class="hero-bio">
+        <p>Korean-born, Lived in China across Shanghai, HongKong, Yantai, Educated in the Detroit, working and based in Ingolstadt, Germany</p>
+      </div>
+      <div class="hero-publications"><HeroPublications /></div>
+      <div class="hero-skills"><HeroSkills /></div>
+    </section>
+    <HighlightsSection />
+    <BrandsSection />
+    <AboutSection />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .hero {
+    max-width: 1440px;
+    margin: 25px auto 0;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-intro {
+    width: 732px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-portrait {
+    margin-top: -110px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-languages {
+    margin-top: 40px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-bio {
+    width: 518px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 100;
+    line-height: 1.219;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-publications {
+    width: 100%;
+    margin-top: 60px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-skills {
+    margin-top: 50px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* --- Small laptop --- */
+  @media (max-width: 1279px) {
+    .hero-intro {
+      width: 600px;
+    }
+    .hero-portrait {
+      margin-top: -90px;
+    }
+    .hero-bio {
+      width: 440px;
+    }
+  }
+
+  /* --- Tablet --- */
+  @media (max-width: 1023px) {
+    .hero {
+      padding: 0 var(--content-padding);
+      gap: 40px;
+    }
+    .hero-intro,
+    .hero-portrait,
+    .hero-languages,
+    .hero-publications,
+    .hero-skills {
+      width: 100%;
+      max-width: 700px;
+    }
+    .hero-portrait {
+      margin-top: 0;
+    }
+    .hero-bio {
+      width: 100%;
+      max-width: 518px;
+      margin-top: 0;
+    }
+    .hero-publications {
+      max-width: 100%;
+      margin-top: 0;
+    }
+    .hero-skills {
+      margin-top: 0;
+    }
+    .hero-languages {
+      margin-top: 0;
+    }
+  }
+
+  /* --- Phone --- */
+  @media (max-width: 767px) {
+    .hero {
+      gap: 32px;
+    }
+    .hero-intro,
+    .hero-portrait,
+    .hero-languages,
+    .hero-bio,
+    .hero-skills {
+      max-width: 100%;
+    }
+    .hero-bio {
+      font-size: 14px;
+    }
+  }
+</style>

@@ -1,0 +1,123 @@
+---
+
+---
+
+<div class="publications">
+  <p class="publications-label">Featured in</p>
+  <div class="publications-bar">
+    <div class="publications-logos">
+      <div class="pub-item">
+        <img src="/images/logos/ideenion-428e18.png" alt="IDEENION" class="pub-logo" />
+        <a href="https://www.youtube.com/watch?v=lgzMPcT3YgQ" target="_blank" rel="noopener noreferrer" class="pub-link">See more →</a>
+      </div>
+      <div class="pub-item">
+        <img src="/images/logos/w700.png" alt="W700" class="pub-logo" />
+        <a href="https://www.instagram.com/apollo_automobil/" target="_blank" rel="noopener noreferrer" class="pub-link">See more →</a>
+      </div>
+      <div class="pub-item">
+        <img src="/images/logos/design-dispatch.png" alt="Design Dispatch" class="pub-logo" />
+        <a href="https://www.designdispatch.site/article/d8991e1e-ff5a-43c2-9bf4-eda5a4702c59" target="_blank" rel="noopener noreferrer" class="pub-link">See more →</a>
+      </div>
+      <div class="pub-item">
+        <img src="/images/logos/cx-logo.png" alt="Car Experience" class="pub-logo" />
+        <a href="https://www.creativeexchange.net/article/39f6cb84-055e-4fc5-9ccc-7313cc107252" target="_blank" rel="noopener noreferrer" class="pub-link">See more →</a>
+      </div>
+      <div class="pub-item">
+        <img src="/images/logos/logo-cdn.svg" alt="CDN" class="pub-logo" />
+        <a href="https://www.cardesignnews.com/design-tools/the-enduring-art-of-sketching-in-car-design/449761" target="_blank" rel="noopener noreferrer" class="pub-link">See more →</a>
+      </div>
+      <div class="pub-item">
+        <img src="/images/logos/ccs-logo.svg" alt="CCS" class="pub-logo" />
+        <a href="https://www.ccsdetroit.edu/news/shifting-gears-how-women-are-driving-the-future-of-movement/" target="_blank" rel="noopener noreferrer" class="pub-link">See more →</a>
+      </div>
+      <div class="pub-item">
+        <img src="/images/logos/yanko-design.png" alt="Yanko Design" class="pub-logo" />
+        <a href="https://www.yankodesign.com/2018/02/08/an-acura-te-look-into-the-future/" target="_blank" rel="noopener noreferrer" class="pub-link">See more →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .publications-label {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.219;
+  }
+
+  .publications-bar {
+    background: var(--color-text);
+    height: 168px;
+    margin-top: 17px;
+  }
+
+  .publications-logos {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    padding: 0 60px;
+  }
+
+  .pub-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .pub-logo {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .pub-link {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--color-text-muted);
+    text-decoration: none;
+  }
+
+  @media (max-width: 1279px) {
+    .publications-logos {
+      padding: 0 30px;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .publications-bar {
+      height: auto;
+      padding: 24px 0;
+    }
+    .publications-logos {
+      flex-wrap: wrap;
+      gap: 20px 0;
+      padding: 0 20px;
+      justify-content: space-evenly;
+    }
+    .pub-item {
+      flex: 0 0 33.33%;
+      padding: 8px 0;
+    }
+    .pub-logo {
+      height: 28px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .publications-logos {
+      padding: 0 16px;
+    }
+    .pub-item {
+      flex: 0 0 50%;
+    }
+    .pub-logo {
+      height: 24px;
+    }
+    .pub-link {
+      font-size: 10px;
+    }
+  }
+</style>

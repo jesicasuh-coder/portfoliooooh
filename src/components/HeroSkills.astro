@@ -1,0 +1,163 @@
+---
+
+---
+
+<div class="skills">
+  <p class="skills-label">Does</p>
+  <div class="skills-row skills-row-1">
+    <div class="skill-item">
+      <img src="/images/icons/skills-exterior.svg" alt="Exterior Design icon" class="skill-icon" />
+      <span class="skill">Exterior Design</span>
+    </div>
+    <div class="skill-item">
+      <img src="/images/icons/skills-interior.svg" alt="Interior Design icon" class="skill-icon" />
+      <span class="skill">Interior Design</span>
+    </div>
+    <div class="skill-item">
+      <img src="/images/icons/skills-cmf.svg" alt="CMF Design icon" class="skill-icon" />
+      <span class="skill">CMF Design</span>
+    </div>
+    <div class="skill-item">
+      <img src="/images/icons/skills-uiux.svg" alt="UI/UX Design icon" class="skill-icon" />
+      <span class="skill">UI/UX Design</span>
+    </div>
+  </div>
+  <div class="skills-row skills-row-2">
+    <div class="skill-item">
+      <img src="/images/icons/skill-project management.svg" alt="Project Management icon" class="skill-icon" />
+      <span class="skill">Project Management</span>
+    </div>
+    <div class="skill-item">
+      <img src="/images/icons/skills-modelling.svg" alt="CAS Model Coordination icon" class="skill-icon" />
+      <span class="skill">CAS Model Coordination</span>
+    </div>
+    <div class="skill-item">
+      <img src="/images/icons/skills - engineering.svg" alt="Engineering Alignment icon" class="skill-icon" />
+      <span class="skill">Engineering Alignment</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .skills {
+    width: 697px;
+    margin: 0 auto;
+  }
+
+  .skills-label {
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.219;
+    margin-bottom: 24px;
+  }
+
+  .skills-row {
+    display: flex;
+    gap: 6px;
+  }
+
+  .skills-row-1 {
+    justify-content: space-between;
+    margin-bottom: 29px;
+  }
+
+  .skills-row-2 {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .skill-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+
+  .skill {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.219;
+    text-align: center;
+  }
+
+  .skills-row-1 .skill-item {
+    width: 130px;
+  }
+
+  .skills-row-2 .skill-item {
+    width: 168px;
+  }
+
+  .skills-row-2 .skill-item:last-child {
+    width: 150px;
+  }
+
+  @media (max-width: 1279px) {
+    .skills {
+      width: 560px;
+    }
+    .skill-icon {
+      width: 64px;
+      height: 64px;
+    }
+    .skill {
+      font-size: 20px;
+    }
+    .skills-row-1 .skill-item,
+    .skills-row-2 .skill-item {
+      width: auto;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .skills {
+      width: 100%;
+      max-width: 700px;
+    }
+    .skills-label {
+      margin-bottom: 16px;
+    }
+    .skill-icon {
+      width: 56px;
+      height: 56px;
+    }
+    .skills-row {
+      justify-content: center;
+    }
+    .skills-row-1 {
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .skills-row-1 .skill-item,
+    .skills-row-2 .skill-item {
+      width: auto;
+    }
+    .skill {
+      font-size: 18px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .skills {
+      max-width: 100%;
+    }
+    .skill-icon {
+      width: 44px;
+      height: 44px;
+    }
+    .skill {
+      font-size: 14px;
+    }
+    .skills-row {
+      gap: 16px;
+    }
+  }
+</style>

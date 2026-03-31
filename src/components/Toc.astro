@@ -1,0 +1,111 @@
+---
+interface Props {
+  items: { label: string; href: string }[];
+  paddingTop?: string;
+}
+
+const { items, paddingTop = '0px' } = Astro.props;
+---
+
+<nav class="toc" data-toc style={`padding-top: ${paddingTop}`}>
+  {items.map(item => (
+    <a href={item.href} class="toc-item">{item.label}</a>
+  ))}
+</nav>
+
+<style>
+  .toc {
+    position: sticky;
+    top: 40px;
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-top: 12px;
+    padding-right: 40px;
+  }
+
+  .toc-item {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.219;
+  }
+
+  .toc-item:global(.toc-active) {
+    font-weight: 500;
+  }
+
+  @media (max-width: 800px) {
+    .toc {
+      position: static;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 6px 16px;
+      padding-right: 0;
+      padding-top: 0 !important;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-toc]').forEach(toc => {
+    const links = toc.querySelectorAll<HTMLAnchorElement>('.toc-item');
+    const headerDivider = document.querySelector<HTMLElement>('.header .divider');
+    const sectionIds = Array.from(links)
+      .map(link => link.getAttribute('href')?.slice(1))
+      .filter((id): id is string => Boolean(id));
+    const sections = sectionIds
+      .map(id => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    function findPrecedingDivider(section: HTMLElement): HTMLElement | null {
+      const prev = section.previousElementSibling;
+      if (prev instanceof HTMLElement && prev.classList.contains('divider-full')) {
+        return prev;
+      }
+      return null;
+    }
+
+    function updateActive() {
+      if (!headerDivider) return;
+      const headerLine = headerDivider.getBoundingClientRect().top;
+      let currentId = sectionIds[0];
+      for (const section of sections) {
+        const dividerFull = findPrecedingDivider(section);
+        const refTop = dividerFull
+          ? dividerFull.getBoundingClientRect().top
+          : section.getBoundingClientRect().top;
+        if (refTop <= headerLine + 1) {
+          currentId = section.id;
+        }
+      }
+      links.forEach(link => {
+        link.classList.toggle('toc-active', link.getAttribute('href') === `#${currentId}`);
+      });
+    }
+
+    window.addEventListener('scroll', updateActive, { passive: true });
+    updateActive();
+
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href') ?? '';
+        const hash = href.slice(1);
+        if (!hash || !headerDivider) return;
+
+        const section = document.getElementById(hash);
+        if (!section) return;
+
+        e.preventDefault();
+
+        const dividerFull = findPrecedingDivider(section);
+        const headerDividerY = headerDivider.getBoundingClientRect().top;
+        const targetY = dividerFull
+          ? dividerFull.getBoundingClientRect().top + window.scrollY
+          : section.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: targetY - headerDividerY, behavior: 'smooth' });
+        history.pushState(null, '', href);
+      });
+    });
+  });
+</script>

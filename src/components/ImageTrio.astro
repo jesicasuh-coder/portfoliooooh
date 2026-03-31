@@ -1,0 +1,27 @@
+---
+---
+
+<div class="image-trio">
+  <slot />
+</div>
+
+<style>
+  .image-trio {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    margin: 24px 0;
+  }
+
+  .image-trio :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 767px) {
+    .image-trio {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

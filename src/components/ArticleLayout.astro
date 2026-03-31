@@ -1,0 +1,32 @@
+---
+interface Props {
+  sidebarWidth?: string;
+}
+
+const { sidebarWidth = '246px' } = Astro.props;
+---
+
+<div class="article" style={`--sidebar-width: ${sidebarWidth}`}>
+  <slot name="toc" />
+  <slot />
+</div>
+
+<style>
+  .article {
+    padding: 0 var(--content-padding);
+    display: grid;
+    grid-template-columns: var(--sidebar-width) 1fr;
+    margin-top: 36px;
+  }
+
+  .article :global(.divider-full) {
+    border-top: 0.5px solid var(--color-text-muted);
+    margin: 35px 0 56px;
+  }
+
+  @media (max-width: 800px) {
+    .article {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

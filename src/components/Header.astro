@@ -1,0 +1,138 @@
+---
+const isHighlightsPage = Astro.url.pathname.startsWith('/highlights');
+---
+
+<header class="header">
+  <nav class="nav">
+    <a href="/" class="nav-logo">Jessica</a>
+    <a href="/#highlights" class:list={['nav-link', { 'nav-active': isHighlightsPage }]}>Highlights</a>
+    <a href="/#brands" class="nav-link">Brands</a>
+    <a href="/#about" class="nav-link">About / Contacts</a>
+  </nav>
+  <div class="divider"></div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--color-bg);
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 20px var(--content-padding) 0;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding-bottom: 20px;
+  }
+
+  .nav-logo {
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .nav-link {
+    font-size: 20px;
+    font-weight: 100;
+  }
+
+  .nav-link:global(.nav-active) {
+    font-weight: 500;
+  }
+
+  .divider {
+    border-top: 1px solid var(--color-text);
+  }
+
+  @media (max-width: 1279px) {
+    .nav {
+      gap: 32px;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .nav {
+      gap: 24px;
+    }
+    .nav-logo,
+    .nav-link {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .nav {
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .nav-logo,
+    .nav-link {
+      font-size: 14px;
+    }
+  }
+</style>
+
+<script>
+  const headerDivider = document.querySelector<HTMLElement>('.header .divider');
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('.header .nav-link');
+  const sectionIds = Array.from(navLinks)
+    .map(link => {
+      const href = link.getAttribute('href') ?? '';
+      const hash = href.includes('#') ? href.slice(href.indexOf('#') + 1) : '';
+      return hash;
+    })
+    .filter(Boolean);
+  const sections = sectionIds
+    .map(id => document.getElementById(id))
+    .filter((el): el is HTMLElement => el !== null);
+
+  /* On sub-pages (e.g. /highlights/*) the homepage sections don't exist,
+     so skip scroll-spy and click-scroll to preserve the server-set nav-active class. */
+  if (sections.length > 0) {
+    /* --- scroll-spy: highlight active nav link --- */
+    function updateActiveNav() {
+      if (!headerDivider) return;
+      const headerLine = headerDivider.getBoundingClientRect().top;
+      let currentId = '';
+      for (const section of sections) {
+        const divider = section.querySelector('.divider');
+        if (divider && divider.getBoundingClientRect().top <= headerLine + 1) {
+          currentId = section.id;
+        }
+      }
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href') ?? '';
+        const hash = href.includes('#') ? href.slice(href.indexOf('#') + 1) : '';
+        link.classList.toggle('nav-active', hash === currentId && currentId !== '');
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    updateActiveNav();
+
+    /* --- click: scroll so section divider aligns with header divider --- */
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href') ?? '';
+        const hash = href.includes('#') ? href.slice(href.indexOf('#') + 1) : '';
+        if (!hash || !headerDivider) return;
+
+        const section = document.getElementById(hash);
+        const sectionDivider = section?.querySelector('.divider');
+        if (!sectionDivider) return;
+
+        e.preventDefault();
+        const headerDividerY = headerDivider.getBoundingClientRect().top;
+        const sectionDividerY = sectionDivider.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: sectionDividerY - headerDividerY, behavior: 'smooth' });
+        history.pushState(null, '', href);
+      });
+    });
+  }
+</script>

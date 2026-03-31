@@ -1,0 +1,52 @@
+---
+interface Props {
+  size?: number;
+}
+
+const { size = 56 } = Astro.props;
+---
+
+<div class="social-icons">
+  <a href="https://www.linkedin.com/in/jesica-hyeyoung-suh/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+    <img src="/images/icon-linkedin.png" alt="LinkedIn" width={size} height={size} />
+  </a>
+  <a href="https://www.instagram.com/jes2_design/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+    <img src="/images/icon-instagram.png" alt="Instagram" width={size} height={size} />
+  </a>
+  <a href="https://www.behance.net/jesicasuh" target="_blank" rel="noopener noreferrer" aria-label="Behance" class="behance">
+    <img src="/images/icon-behance.png" alt="Behance" width={size} height={size} />
+  </a>
+</div>
+
+<style>
+  .social-icons {
+    display: flex;
+    align-items: center;
+    gap: 68px;
+  }
+
+  .social-icons img {
+    display: block;
+    object-fit: contain;
+  }
+
+  .behance img {
+    transform: scale(1.25);
+  }
+
+  @media (max-width: 1023px) {
+    .social-icons {
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .social-icons {
+      gap: 24px;
+    }
+    .social-icons img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+</style>

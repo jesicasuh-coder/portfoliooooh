@@ -1,0 +1,187 @@
+---
+import SectionLayout from './SectionLayout.astro';
+import SocialIcons from './SocialIcons.astro';
+---
+
+<SectionLayout id="about" title={"About/\nContacts"}>
+  <div class="about-content">
+    <h3 class="about-heading">IT ALL BEGINS WITH A PURPOSE.</h3>
+    <div class="about-text">
+      <p>Aesthetics meet technical precision.</p>
+      <p>Proportion tells the authentic story.<br />Emotion emerges through structure.<br />Direction creates clarity and flow.</p>
+      <p>Every form must feel human and ready to work.</p>
+    </div>
+    <p class="about-contact">Feel free to reach me out at &nbsp;<a href="mailto:jessicasuh.design@gmail.com">jessicasuh.design@gmail.com</a></p>
+
+    <div class="about-social">
+      <SocialIcons size={56} />
+    </div>
+
+    <div class="hobbies">
+      <p class="hobbies-label">I play / do</p>
+      <div class="hobbies-icons">
+        <img src="/images/hobby-icons.svg" alt="" width="655" height="51" />
+      </div>
+      <div class="hobbies-labels">
+        <div class="hobby-label" style="--center: 18px">
+          <span class="hobby-name">Golf</span>
+          <span class="hobby-desc">aiming not to do 3-putts</span>
+        </div>
+        <div class="hobby-label" style="--center: 244px">
+          <span class="hobby-name">Tennis</span>
+          <span class="hobby-desc">trying not to make double-faults</span>
+        </div>
+        <div class="hobby-label" style="--center: 437px">
+          <span class="hobby-name">Vibe Code</span>
+          <span class="hobby-desc">beep-bop with prompts</span>
+        </div>
+        <div class="hobby-label" style="--center: 634px">
+          <span class="hobby-name">Lots of fun stuff</span>
+          <span class="hobby-desc">and hunting for good food</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="about-closing">but I will always answer your email!</p>
+  </div>
+</SectionLayout>
+
+<style>
+  .about-content {
+    padding-top: 0;
+  }
+
+  .about-heading {
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1.219;
+  }
+
+  .about-text {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .about-text p {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.219;
+  }
+
+  .about-contact {
+    margin-top: 30px;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.219;
+  }
+
+  .about-contact a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .about-social {
+    margin-top: 40px;
+  }
+
+  .hobbies {
+    margin-top: 88px;
+    padding-left: 55px;
+  }
+
+  .hobbies-label {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.219;
+  }
+
+  .hobbies-icons {
+    margin-top: 45px;
+  }
+
+  .hobbies-labels {
+    position: relative;
+    width: 655px;
+    height: 32px;
+    margin-top: 14px;
+  }
+
+  .hobby-label {
+    position: absolute;
+    left: var(--center);
+    transform: translateX(-50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+  }
+
+  .hobby-name {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.219;
+  }
+
+  .hobby-desc {
+    font-size: 11px;
+    font-weight: 300;
+    line-height: 1.219;
+  }
+
+  .about-closing {
+    margin-top: 48px;
+    text-align: right;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.219;
+  }
+
+  @media (max-width: 1023px) {
+    .about-heading {
+      font-size: 26px;
+    }
+    .hobbies {
+      padding-left: 0;
+    }
+    .hobbies-icons img {
+      width: 100%;
+    }
+    .hobbies-labels {
+      width: 100%;
+      height: auto;
+      position: static;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .hobby-label {
+      position: static;
+      transform: none;
+      flex: 0 0 auto;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .about-heading {
+      font-size: 22px;
+    }
+    .hobbies-labels {
+      justify-content: center;
+      gap: 16px;
+    }
+    .hobby-label {
+      flex: 0 0 45%;
+    }
+    .hobbies {
+      margin-top: 48px;
+    }
+    .about-closing {
+      text-align: center;
+      margin-top: 32px;
+    }
+  }
+</style>

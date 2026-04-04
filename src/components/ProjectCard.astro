@@ -6,13 +6,14 @@ interface Props {
   ctaText?: string;
   comingSoon?: boolean;
   href?: string;
+  external?: boolean;
 }
 
-const { image, title, description, ctaText, comingSoon = false, href } = Astro.props;
+const { image, title, description, ctaText, comingSoon = false, href, external = false } = Astro.props;
 ---
 
 {href ? (
-  <a href={href} class="card-link">
+  <a href={href} class="card-link" {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
     <div class="card">
       <img src={image} alt={title} class="card-image" />
       <div class="card-overlay">
